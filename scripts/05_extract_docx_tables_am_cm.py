@@ -1,15 +1,13 @@
-"""Command line helpers for extracting DOCX tables.
+"""CLI helpers for exporting DOCX tables.
 
-The heavy lifting lives in :mod:`cne_ai.docx_tables`; this module simply wires
-those utilities into a small CLI so that analysts can run the extraction from
-the repository root.
+This script delegates the extraction and CSV export workflow to
+``cne_ai.docx_tables`` and only exposes a convenient command line interface.
 """
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 from typing import Iterable
-
-import argparse
 
 from cne_ai.docx_tables import export_tables_to_csv, extract_tables
 

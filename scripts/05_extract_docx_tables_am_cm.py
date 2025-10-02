@@ -1,4 +1,13 @@
-"""Utilities for extracting tables from DOCX documents."""
+"""CLI wrapper around :mod:`cne_ai.docx_tables`.
+
+This script intentionally keeps the command line interface minimal and
+delegates the heavy lifting to :func:`cne_ai.docx_tables.extract_tables` and
+:func:`cne_ai.docx_tables.export_tables_to_csv`.  The arrangement mirrors the
+longer explanatory docstring that used to live in this file while keeping the
+actual implementation centralised in the shared module.  Doing so prevents
+merge conflicts caused by duplicated logic and ensures both the web app and the
+standalone utilities stay in sync.
+"""
 from __future__ import annotations
 
 from pathlib import Path

@@ -17,8 +17,17 @@ from cne_ai.docx_tables import export_tables_to_csv, extract_tables
 def _parse_cli_arguments(args: Iterable[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Extract tables from a DOCX file")
     parser.add_argument("input", type=Path, help="Path to the DOCX file")
-    parser.add_argument("--output", type=Path, default=Path("tables"), help="Directory where CSV files will be written")
-    parser.add_argument("--basename", default="table", help="Base name for the exported CSV files")
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=Path("tables"),
+        help="Directory where CSV files will be written",
+    )
+    parser.add_argument(
+        "--basename",
+        default="table",
+        help="Base name for the exported CSV files",
+    )
     return parser.parse_args(list(args))
 
 

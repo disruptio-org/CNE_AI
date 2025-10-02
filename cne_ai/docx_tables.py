@@ -1,8 +1,11 @@
-"""Utilities for extracting and exporting tables embedded in DOCX documents."""
+"""Utilities for working with tables embedded in DOCX documents."""
 from __future__ import annotations
 
 from pathlib import Path
 from typing import List, Sequence, Type, Union
+import csv
+
+try:  # pragma: no cover - optional dependency in some environments
 
 import csv
 
@@ -61,3 +64,6 @@ def export_tables_to_csv(
                 writer.writerow(row)
         exported_paths.append(output_path)
     return exported_paths
+
+
+__all__ = ["extract_tables", "export_tables_to_csv"]

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Processador de Operadores</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  </head>
+  <body class="bg-light">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h1 class="h3 mb-3">Operadores A &amp; B</h1>
+              <p class="text-muted">Carregue um documento DOCX para receber um ficheiro ZIP com os CSV gerados pelos dois operadores.</p>
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <div class="alert alert-warning">
+                    {% for message in messages %}
+                      <div>{{ message }}</div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              {% endwith %}
+              <form method="post" enctype="multipart/form-data" class="d-grid gap-3">
+                <div>
+                  <label for="document" class="form-label">Documento DOCX</label>
+                  <input class="form-control" type="file" id="document" name="document" accept=".docx" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Processar documento</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

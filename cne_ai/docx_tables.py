@@ -6,6 +6,10 @@ from typing import List, Sequence, Type, Union
 import csv
 
 try:  # pragma: no cover - optional dependency in some environments
+
+import csv
+
+try:  # pragma: no cover - optional dependency in the execution environment
     from docx import Document
 except ImportError as exc:  # pragma: no cover - error path when dependency missing
     raise ImportError(

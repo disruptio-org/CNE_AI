@@ -11,6 +11,18 @@ from typing import Iterable
 import argparse
 
 from cne_ai.docx_tables import extract_tables, export_tables_to_csv
+"""CLI helpers for exporting DOCX tables.
+
+This script delegates the extraction and CSV export workflow to
+``cne_ai.docx_tables`` and only exposes a convenient command line interface.
+"""
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+from typing import Iterable
+
+from cne_ai.docx_tables import export_tables_to_csv, extract_tables
 
 
 def _parse_cli_arguments(args: Iterable[str]) -> argparse.Namespace:

@@ -21,6 +21,28 @@ A aplicação depende de um modelo de linguagem spaCy. Para efeitos de teste bas
 python -m spacy download pt_core_news_sm
 ```
 
+### Preparação para uma instalação offline
+
+Se precisar de configurar a aplicação numa máquina sem acesso à internet:
+
+1. Num computador com ligação, crie um ambiente temporário e faça o download das dependências e do modelo spaCy para uma pasta portátil:
+   ```bash
+   python -m venv fetch-env
+   source fetch-env/bin/activate
+   pip download -r requirements.txt -d offline-packages
+   pip download pt_core_news_sm -d offline-packages
+   deactivate
+   ```
+2. Copie o repositório e a pasta `offline-packages` para a máquina offline (por exemplo, através de uma pen USB).
+3. Na máquina offline, crie um ambiente virtual, active-o e instale as dependências a partir da pasta copiada:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install --no-index --find-links=offline-packages -r requirements.txt
+   pip install --no-index --find-links=offline-packages pt_core_news_sm
+   ```
+   No Windows substitua o comando de activação por `.venv\Scripts\activate`.
+
 ## Executar a aplicação web
 
 ```bash

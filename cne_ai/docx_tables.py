@@ -1,4 +1,4 @@
-"""Utilities for working with tables embedded in DOCX documents."""
+"""Utilities for extracting and exporting tables embedded in DOCX documents."""
 from __future__ import annotations
 
 from pathlib import Path
